@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        String feedback;
+        String keyword;
+
+        if (input.contains(",")) {
+            int commaPos = input.indexOf(",");
+            feedback = input.substring(0, commaPos).trim();
+            keyword = input.substring(commaPos + 1).trim();
+        } else {
+            feedback = input.trim();
+            keyword = sc.nextLine().trim();
+        }
+
+        // Validate: feedback must contain only letters/spaces, keyword must contain only letters
+        if (!feedback.matches("[a-zA-Z ]+") || !keyword.matches("[a-zA-Z]+")) {
+            System.out.println("Invalid Feedback Message");
+        } else if (feedback.toLowerCase().contains(keyword.toLowerCase())) {
+            System.out.println("Keyword Found");
+        } else {
+            System.out.println("Keyword Not Found");
+        }
+    }
+}

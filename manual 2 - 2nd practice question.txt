@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String feedback = sc.hasNextLine() ? sc.nextLine() : "";
+
+        if (feedback.length() > 500) {
+            System.out.println("Feedback Exceeds Maximum Length");
+        } else if (feedback.isEmpty() || !feedback.matches("[a-zA-Z ]+")) {
+            System.out.println("Invalid Feedback Message");
+        } else {
+            System.out.println("Characters = " + feedback.length());
+        }
+    }
+}
